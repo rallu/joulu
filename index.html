@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Snowman Card</title>
+    <style>
+
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #c41e3a;
+            background-image: url('https://cdn.midjourney.com/d37782e7-a427-4145-a173-6dae760ffbd6/0_3.png');
+            background-size: 20%;
+        }
+
+        .scene-container {
+            position: relative;
+            width: min(90vw, 90vh);
+            height: min(90vw, 90vh);
+            border: 15px dotted rgba(255, 255, 255,0.5); /* Christmas red */
+            border-radius: 100%;
+            background: linear-gradient(45deg, #006400, #008000); /* Dark green to green */
+            
+        }
+
+        canvas {
+            border-radius: 100%;
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+            box-shadow: 0 0 20px rgba(196, 30, 58, 0.5),
+                inset 0 0 20px rgba(196, 30, 58, 0.3);
+        }
+
+        .message {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            font-size: min(24px, 4vw);
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .scene-container::before {
+            top: 10px;
+            left: 10px;
+        }
+
+        .scene-container::after {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 2;
+        }
+
+        .controls div {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .controls label {
+            color: black;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .controls input[type="range"] {
+            width: 150px;
+            cursor: pointer;
+        }
+
+        .controls button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid black;
+            color: black;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .controls button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <div>
+            <label for="snow-speed">Snow Accumulation:</label>
+            <input type="range" id="snow-speed" min="0" max="100" value="10">
+        </div>
+        <div>
+            <label for="fall-speed">Fall Speed:</label>
+            <input type="range" id="fall-speed" min="1" max="100" value="20">
+        </div>
+        <button id="clear-snow">Clear Snow</button>
+    </div>
+    <div class="scene-container">
+        <div class="message">
+            <h1>Hyvää Joulua! 🎄</h1>
+        </div>
+        <script type="module" src="snowman.js"></script>
+    </div>
+</body>
+</html>
